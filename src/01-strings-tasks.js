@@ -52,7 +52,7 @@ function getStringLength(value) {
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
 function getStringFromTemplate(firstName, lastName) {
-  return `Hello, ${firtsName} ${lastName}`
+  return `Hello, ${firstName} ${lastName}`;
 }
 
 /**
@@ -68,7 +68,6 @@ function getStringFromTemplate(firstName, lastName) {
 function extractNameFromTemplate(value) {
   return value.slice(7);
 }
-
 
 
 /**
@@ -129,11 +128,11 @@ function repeatString(/* value, count */) {
  */
 function removeFirstOccurrences(str, value) {
   const index = str.indexOf(value);
-  console.log(index);
-	if (index === -1) {
-		return str;
-	}
-	return str.slice(0, index) + str.slice(index + value.length);
+
+  if (index === -1) {
+    return str;
+  }
+  return str.slice(0, index) + str.slice(index + value.length);
 }
 
 
@@ -149,7 +148,7 @@ function removeFirstOccurrences(str, value) {
  *   '<a>' => 'a'
  */
 function unbracketTag(str) {
-  return str.slice(1, -1)
+  return str.slice(1, -1);
 }
 
 
@@ -197,7 +196,7 @@ function extractEmails(str) {
  *
  * @example
  *
- *            '┌────┐\n'+ 
+ *            '┌────┐\n'+
  *  (6,4) =>  '│    │\n'+
  *            '│    │\n'+
  *            '└────┘\n'
@@ -210,8 +209,8 @@ function extractEmails(str) {
  *             '└──────────┘\n'
  *
  */
-function getRectangleString(width, height) {
- 
+function getRectangleString(/* width, height */) {
+  throw new Error('Not implemented');
 }
 
 
@@ -232,7 +231,7 @@ function getRectangleString(width, height) {
  *
  */
 function encodeToRot13(str) {
-  return str.replace(/[a-z]/gi, letter => String.fromCharCode(letter.charCodeAt(0) + (letter.toLowerCase() <= 'm' ? 13 : -13)));
+  return str.replace(/[a-z]/gi, (letter) => String.fromCharCode(letter.charCodeAt(0) + (letter.toLowerCase() <= 'm' ? 13 : -13)));
 }
 
 /**
@@ -249,7 +248,7 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-  return typeof(value) === 'string' || value instanceof String;
+  return typeof (value) === 'string' || value instanceof String;
 }
 
 
@@ -278,11 +277,10 @@ function isString(value) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-  const deck = ['A♣','2♣','3♣','4♣','5♣','6♣','7♣','8♣','9♣','10♣','J♣','Q♣','K♣', 'A♦','2♦','3♦','4♦','5♦','6♦','7♦','8♦','9♦','10♦','J♦','Q♦','K♦', 'A♥','2♥','3♥','4♥','5♥','6♥','7♥','8♥','9♥','10♥','J♥','Q♥','K♥','A♠','2♠','3♠','4♠','5♠','6♠','7♠','8♠','9♠','10♠','J♠','Q♠','K♠'];
-  let id = deck.indexOf(value);
+  const deck = ['A♣', '2♣', '3♣', '4♣', '5♣', '6♣', '7♣', '8♣', '9♣', '10♣', 'J♣', 'Q♣', 'K♣', 'A♦', '2♦', '3♦', '4♦', '5♦', '6♦', '7♦', '8♦', '9♦', '10♦', 'J♦', 'Q♦', 'K♦', 'A♥', '2♥', '3♥', '4♥', '5♥', '6♥', '7♥', '8♥', '9♥', '10♥', 'J♥', 'Q♥', 'K♥', 'A♠', '2♠', '3♠', '4♠', '5♠', '6♠', '7♠', '8♠', '9♠', '10♠', 'J♠', 'Q♠', 'K♠'];
+  const id = deck.indexOf(value);
   return id;
 }
-
 
 
 module.exports = {

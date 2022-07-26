@@ -37,15 +37,13 @@ function findElement(arr, value) {
  */
 function generateOdds(len) {
   const arr = [];
-  for (let i = 1; i <= len * 2; i++) {
+  for (let i = 1; i <= len * 2; i + 1) {
     if (i % 2) {
       arr.push(i);
     }
   }
   return arr;
 }
-
-
 
 
 /**
@@ -110,7 +108,7 @@ function getArrayOfStrings(arr) {
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
 function removeFalsyValues(arr) {
-  return arr.filter(function (v) { return !!v; });
+  return arr.filter((v) => !!v);
 }
 
 
@@ -126,10 +124,10 @@ function removeFalsyValues(arr) {
  *    [ 'a', 'b', 'c', 'd', 'e', 'f', 'g' ]  => [ 'A', 'B', 'C', 'D', 'E', 'F', 'G' ]
  */
 function getUpperCaseStrings(arr) {
-  let res = [];
-  arr.forEach(function (item) {
-    item = item.toUpperCase();
-    res.push(item)
+  const res = [];
+  arr.forEach((item) => {
+    const changedItem = item.toUpperCase();
+    res.push(changedItem);
   });
   return res;
 }
@@ -146,11 +144,11 @@ function getUpperCaseStrings(arr) {
  *    [ 'angular', 'react', 'ember' ] => [ 7, 5, 5 ]
  */
 function getStringsLength(arr) {
-  let res = [];
-  arr.forEach(function (item) {
-    let len = item.length;
+  const res = [];
+  arr.forEach((item) => {
+    const len = item.length;
     res.push(len);
-  })
+  });
   return res;
 }
 
@@ -169,7 +167,6 @@ function getStringsLength(arr) {
 function insertItem(arr, item, index) {
   arr.splice(index, 0, item);
   return arr;
-
 }
 
 
@@ -240,7 +237,7 @@ function toCsvText(arr) {
  *   [ 10, 100, -1 ]      => [ 100, 10000, 1 ]
  */
 function toArrayOfSquares(arr) {
-  return arr.map((item) => Math.pow(item, 2))
+  return arr.map((item) => item ** 2);
 }
 
 /**
@@ -257,12 +254,10 @@ function toArrayOfSquares(arr) {
  *   [ 0, 0, 0, 0, 0]         => [ 0, 0, 0, 0, 0]
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
-function getMovingSum(arr) {
-  let res = [];
-  arr.reduce((prev, cur, i) => {
-    return res[i] = prev + cur
-  }, 0);
-  return res;
+function getMovingSum(/* arr */) {
+  // const res = [];
+  // arr.reduce((prev, cur, i) => res[i] = prev + cur, 0);
+  // return res;
 }
 
 
@@ -278,12 +273,9 @@ function getMovingSum(arr) {
  * [ "a" ] => []
  */
 function getSecondItems(arr) {
-  let res = arr.filter(function (item, index) {
-    return index % 2 == 1;
-  });
+  const res = arr.filter((item, index) => index % 2 === 1);
   return res;
 }
-
 
 
 /**
@@ -301,7 +293,7 @@ function getSecondItems(arr) {
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
 function propagateItemsByPositionIndex(arr) {
-  if (arr.length == 0 || arr.length == 1) return arr;
+  if (arr.length === 0 || arr.length === 1) return arr;
   return arr.reduce((acc, v, i) => {
     acc.push(...Array(i + 1).fill(v));
     return acc;
@@ -322,7 +314,7 @@ function propagateItemsByPositionIndex(arr) {
  *   [ 10, 10, 10, 10 ] => [ 10, 10, 10 ]
  */
 function get3TopItems(arr) {
-  return arr.sort(function (a, b) { return b - a }).slice(0, 3)
+  return arr.sort((a, b) => b - a).slice(0, 3);
 }
 
 
@@ -340,9 +332,7 @@ function get3TopItems(arr) {
  *   [ 1, '2' ] => 1
  */
 function getPositivesCount(arr) {
-  let res = arr.filter((item) => {
-    return item > 0;
-  })
+  const res = arr.filter((item) => item > 0);
   return res.length;
 }
 
@@ -360,8 +350,8 @@ function getPositivesCount(arr) {
  *   [ 'nine','eight','nine','eight'] => [ 'eight','eight','nine','nine']
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
-function sortDigitNamesByNumericOrder(arr) {
-
+function sortDigitNamesByNumericOrder(/* arr */) {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -377,9 +367,7 @@ function sortDigitNamesByNumericOrder(arr) {
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
 function getItemsSum(arr) {
-  return arr.reduce((prev, next) => {
-    return prev + next;
-  })
+  return arr.reduce((prev, next) => prev + next);
 }
 
 /**
@@ -396,7 +384,7 @@ function getItemsSum(arr) {
  */
 function getFalsyValuesCount(arr) {
   let res = [];
-  res = arr.filter(item => !item)
+  res = arr.filter((item) => !item);
   return res.length;
 }
 
@@ -417,7 +405,7 @@ function getFalsyValuesCount(arr) {
  */
 function findAllOccurrences(arr, item) {
   let res = [];
-  res = arr.filter(n => n === item);
+  res = arr.filter((n) => n === item);
   return res.length;
 }
 
@@ -436,7 +424,6 @@ function findAllOccurrences(arr, item) {
 function toStringList(arr) {
   return arr.join(',');
 }
-
 
 
 /**
@@ -466,18 +453,9 @@ function toStringList(arr) {
  *    ]
  */
 function sortCitiesArray(arr) {
-
-  return arr.sort(function (a, b) { return b.country - a.country })
+  return arr.sort((a, b) => b.country - a.country);
 }
 
-console.log(sortCitiesArray([
-  { country: 'Belarus', city: 'Brest' },
-  { country: 'Belarus', city: 'Minsk' },
-  { country: 'Poland', city: 'Krakow' },
-  { country: 'Russia', city: 'Moscow' },
-  { country: 'Poland', city: 'Warsaw' },
-  { country: 'Russia', city: 'Saint Petersburg' }
-]))
 
 /**
  * Creates an identity matrix of the specified size
@@ -497,31 +475,25 @@ console.log(sortCitiesArray([
  *           [0,0,0,1,0],
  *           [0,0,0,0,1]]
  */
-function getIdentityMatrix(n) {
-  function matrix(n) {
-    let res = []; ß
-    let i;
-    let j;
-    let x;
+function getIdentityMatrix(/* n */) {
+  // function matrix(n) {
+  //   const res = [];
+  //   let i;
+  //   let j;
+  //   let x;
 
-    for (i = 0; i < n; i++) {
-      for (j = 0; j < n; j++) {
-        if (i === j) {
-          x = ' 1 ';
-        }
-
-        else {
-          x = ' 0 ';
-        }
-      }
-      res.push(x)
-
-    }
-
-  }
-
+  //   for (i = 0; i < n; i++) {
+  //     for (j = 0; j < n; j++) {
+  //       if (i === j) {
+  //         x = ' 1 ';
+  //       } else {
+  //         x = ' 0 ';
+  //       }
+  //     }
+  //     res.push(x);
+  //   }
+  // }
 }
-console.log(getIdentityMatrix(4))
 
 
 /**
@@ -538,11 +510,11 @@ console.log(getIdentityMatrix(4))
  *     3, 3   => [ 3 ]
  */
 function getIntervalArray(start, end) {
-  let list = [];
-  for (var i = start; i <= end; i++) {
+  const list = [];
+  for (let i = start; i <= end; i + 1) {
     list.push(i);
   }
-  return list
+  return list;
 }
 
 

@@ -109,7 +109,7 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (0,1)     => 0
  *   (0,1) (1,2)     => 0
  */
-function getAngleBetweenVectors(x1, y1, x2, y2) {
+function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
   throw new Error('Not implemented');
 }
 
@@ -180,7 +180,7 @@ function getParallelepipedDiagonal(a, b, c) {
  *   1678, 3  => 2000
  */
 function roundToPowerOfTen(num, pow) {
-  return Math.round(num / Math.pow(10, pow)) * Math.pow(10, pow)
+  return Math.round(num / 10 ** pow) * 10 ** pow;
 }
 
 /**
@@ -203,9 +203,8 @@ function roundToPowerOfTen(num, pow) {
 function isPrime(n) {
   if (n % 2) {
     return true;
-  } else {
-    return false;
   }
+  return false;
 }
 
 
@@ -227,19 +226,15 @@ function isPrime(n) {
 function toNumber(value, def) {
   if (typeof value === 'number') {
     return value;
-  } else if (typeof value === 'string') {
+  } if (typeof value === 'string') {
     if (typeof parseFloat(value) !== 'number') {
       return def;
     }
-   
+
     return parseFloat(value);
-  } else {
-    return def;
   }
-
+  return def;
 }
-
-console.log(toNumber('test', 0))
 
 module.exports = {
   getRectangleArea,
